@@ -8,6 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+function navTo(s){document.getElementById('main-content').style.display='block';document.getElementById('company-page').classList.remove('active');document.getElementById('works-all').classList.remove('active');if(s==='hero'){window.scrollTo({top:0,behavior:'smooth'});}else{setTimeout(function(){var e=document.getElementById(s);if(e)e.scrollIntoView({behavior:'smooth'});},50);}}
+function showCompany(){document.getElementById('main-content').style.display='none';document.getElementById('company-page').classList.add('active');document.getElementById('works-all').classList.remove('active');window.scrollTo(0,0);}
+function showWorksAll(){document.getElementById('main-content').style.display='none';document.getElementById('works-all').classList.add('active');document.getElementById('company-page').classList.remove('active');window.scrollTo(0,0);}
+function showMain(){document.getElementById('main-content').style.display='block';document.getElementById('company-page').classList.remove('active');document.getElementById('works-all').classList.remove('active');window.scrollTo(0,0);}
+function showForm(){document.getElementById('form-wrap').classList.add('active');document.getElementById('confirm-wrap').classList.remove('active');document.getElementById('thanks-wrap').classList.remove('active');document.querySelector('.contact-btn').style.display='none';document.getElementById('form-wrap').scrollIntoView({behavior:'smooth',block:'start'});}
+function toggleOther(){var c=document.getElementById('category').value;document.getElementById('other-group').style.display=c==='その他'?'block':'none';}
+function showConfirm(e){e.preventDefault();document.getElementById('c-company').textContent=document.getElementById('company').value||'—';document.getElementById('c-name').textContent=document.getElementById('name').value;document.getElementById('c-email').textContent=document.getElementById('email').value;document.getElementById('c-tel').textContent=document.getElementById('tel').value||'—';document.getElementById('c-category').textContent=document.getElementById('category').value;document.getElementById('c-message').textContent=document.getElementById('message').value||'—';var o=document.getElementById('other').value;if(o){document.getElementById('c-other-row').style.display='flex';document.getElementById('c-other').textContent=o;}document.getElementById('form-wrap').classList.remove('active');document.getElementById('confirm-wrap').classList.add('active');document.getElementById('confirm-wrap').scrollIntoView({behavior:'smooth',block:'start'});}
+function backToForm(){document.getElementById('confirm-wrap').classList.remove('active');document.getElementById('form-wrap').classList.add('active');}
+async function sendForm(){var d={company:document.getElementById('company').value,name:document.getElementById('name').value,email:document.getElementById('email').value,tel:document.getElementById('tel').value,category:document.getElementById('category').value,message:document.getElementById('message').value,other:document.getElementById('other').value};try{var r=await fetch('https://formspree.io/f/xgopagjv',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)});if(r.ok){document.getElementById('confirm-wrap').classList.remove('active');document.getElementById('thanks-wrap').classList.add('active');}else{alert('送信に失敗しました。直接メールにてお問い合わせください。');}}catch(err){alert('送信に失敗しました。直接メールにてお問い合わせください。');}}
+</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -335,7 +346,6 @@
       <tr><th>設立</th><td>2023年4月12日</td></tr>
       <tr><th>所在地</th><td>東京都台東区蔵前4-11-1 髙橋ビル2階</td></tr>
       <tr><th>事業内容</th><td>サウナグッズの企画・製造・販売<br>熱波師（アウフグースパフォーマンス）<br>事業クリエイティブ<br>古着屋2週間の運営</td></tr>
-
     </table>
     <p class="company-profile-title">代表者略歴</p>
     <p class="company-profile-text">
@@ -349,3 +359,9 @@
       <a href="https://www.instagram.com/harinezumi_official/" target="_blank">Instagram</a>
       <a href="https://x.com/harinezumisauna" target="_blank">X</a>
     </div>
+    <p class="footer-copy">© 2026 HEDGEHOG CONCEPT Inc.</p>
+  </footer>
+</div>
+
+</body>
+</html>
