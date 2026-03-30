@@ -1,5 +1,4 @@
 
-html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,574 +10,132 @@ html
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg-gray: #f2f2f2;
-    --bg-white: #ffffff;
-    --text-dark: #333333;
-    --text-mid: #666666;
-    --text-light: #999999;
-    --green: #3a8a4a;
-    --black-btn: #333333;
-    --border: #e0e0e0;
-    --font: 'Noto Sans JP', sans-serif;
+    --bg-gray: #f2f2f2; --bg-white: #ffffff; --text-dark: #333333;
+    --text-mid: #666666; --text-light: #999999; --green: #3a8a4a;
+    --black-btn: #333333; --border: #e0e0e0; --font: 'Noto Sans JP', sans-serif;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg-gray);
-    color: var(--text-dark);
-    font-family: var(--font);
-    font-weight: 300;
-    overflow-x: hidden;
-  }
-
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: var(--bg-gray);
-  }
-
-  .nav-logo {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    color: var(--text-dark);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    align-items: center;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-    font-weight: 300;
-    text-decoration: none;
-    color: var(--text-dark);
-    transition: color 0.2s;
-  }
-
+  body { background: var(--bg-gray); color: var(--text-dark); font-family: var(--font); font-weight: 300; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: var(--bg-gray); }
+  .nav-logo { font-size: 14px; font-weight: 400; letter-spacing: 0.05em; text-decoration: none; color: var(--text-dark); }
+  .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 14px; font-weight: 300; text-decoration: none; color: var(--text-dark); transition: color 0.2s; }
   .nav-links a:hover { color: var(--green); }
   .nav-links a.active { color: var(--green); }
-
-  .nav-contact {
-    background: var(--black-btn) !important;
-    color: #fff !important;
-    padding: 10px 24px !important;
-    border-radius: 999px;
-  }
-
-  #hero {
-    min-height: 100vh;
-    background: var(--bg-gray);
-    display: flex;
-    align-items: center;
-    padding: 100px 80px 80px;
-    position: relative;
-    gap: 40px;
-  }
-
+  .nav-contact { background: var(--black-btn) !important; color: #fff !important; padding: 10px 24px !important; border-radius: 999px; }
+  #hero { min-height: 100vh; background: var(--bg-gray); display: flex; align-items: center; padding: 100px 80px 80px; position: relative; gap: 40px; }
   .hero-left { flex: 1; max-width: 520px; }
-
-  .hero-headline {
-    font-size: clamp(26px, 3vw, 40px);
-    font-weight: 300;
-    line-height: 1.9;
-    letter-spacing: 0.1em;
-    color: var(--text-dark);
-    margin-bottom: 32px;
-  }
-
-  .hero-sub {
-    font-size: 14px;
-    line-height: 2;
-    color: var(--text-mid);
-  }
-
-  .hero-right {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .hero-visual {
-    width: 440px;
-    height: 440px;
-    position: relative;
-  }
-
-  .vis-circle {
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 300px; height: 300px;
-    border-radius: 50%;
-    background: #d4d4d4;
-  }
-
-  .vis-rect {
-    position: absolute;
-    bottom: 30px; right: 0;
-    width: 240px; height: 240px;
-    background: #c4c4c4;
-  }
-
-  .vis-tri {
-    position: absolute;
-    bottom: 30px; left: 60px;
-    width: 0; height: 0;
-    border-left: 80px solid transparent;
-    border-right: 80px solid transparent;
-    border-bottom: 140px solid #b8b8b8;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-mid);
-    letter-spacing: 0.1em;
-  }
-
+  .hero-headline { font-size: clamp(26px, 3vw, 40px); font-weight: 300; line-height: 1.9; letter-spacing: 0.1em; color: var(--text-dark); margin-bottom: 32px; }
+  .hero-sub { font-size: 14px; line-height: 2; color: var(--text-mid); }
+  .hero-right { flex: 1; display: flex; justify-content: flex-end; }
+  .hero-visual { width: 440px; height: 440px; position: relative; }
+  .vis-circle { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 300px; height: 300px; border-radius: 50%; background: #d4d4d4; }
+  .vis-rect { position: absolute; bottom: 30px; right: 0; width: 240px; height: 240px; background: #c4c4c4; }
+  .vis-tri { position: absolute; bottom: 30px; left: 60px; width: 0; height: 0; border-left: 80px solid transparent; border-right: 80px solid transparent; border-bottom: 140px solid #b8b8b8; }
+  .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); text-align: center; font-size: 12px; color: var(--text-mid); letter-spacing: 0.1em; }
   .hero-scroll::after { content: '↓'; display: block; margin-top: 6px; }
-
   .section-title { text-align: center; padding: 80px 40px 60px; }
-
-  .section-title h2 {
-    font-size: clamp(56px, 8vw, 96px);
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    line-height: 1;
-    margin-bottom: 12px;
-    color: var(--text-dark);
-  }
-
+  .section-title h2 { font-size: clamp(56px, 8vw, 96px); font-weight: 400; letter-spacing: -0.01em; line-height: 1; margin-bottom: 12px; color: var(--text-dark); }
   .section-title p { font-size: 13px; color: var(--text-mid); letter-spacing: 0.05em; }
-
   #about { background: var(--bg-white); }
-
-  .about-inner {
-    display: flex;
-    gap: 80px;
-    padding: 0 80px 100px;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: flex-start;
-  }
-
+  .about-inner { display: flex; gap: 80px; padding: 0 80px 100px; max-width: 1200px; margin: 0 auto; align-items: flex-start; }
   .about-img { flex: 1; max-width: 460px; }
-
-  .about-img-placeholder {
-    width: 100%;
-    aspect-ratio: 4/3;
-    background: #e4e4e4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-  }
-
+  .about-img-placeholder { width: 100%; aspect-ratio: 4/3; background: #e4e4e4; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 12px; letter-spacing: 0.1em; }
   .about-text { flex: 1; }
-
-  .about-text p {
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 2;
-    color: var(--text-dark);
-  }
-
+  .about-text p { font-size: 18px; font-weight: 300; line-height: 2; color: var(--text-dark); }
   .about-text p + p { margin-top: 28px; }
-
-  .about-questions {
-    margin: 32px 0;
-    font-size: 20px !important;
-    font-weight: 400 !important;
-    line-height: 2.2 !important;
-    color: var(--text-dark) !important;
-    letter-spacing: 0.04em;
-  }
-
+  .about-questions { margin: 32px 0; font-size: 20px !important; font-weight: 400 !important; line-height: 2.2 !important; color: var(--text-dark) !important; letter-spacing: 0.04em; }
   .about-sign { margin-top: 48px; font-size: 13px; color: var(--text-mid); }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid var(--text-dark);
-    padding: 12px 28px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-dark);
-    text-decoration: none;
-    margin-top: 40px;
-    transition: background 0.2s, color 0.2s;
-    font-family: var(--font);
-    background: transparent;
-    cursor: pointer;
-  }
-
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--text-dark); padding: 12px 28px; border-radius: 999px; font-size: 14px; font-weight: 300; color: var(--text-dark); text-decoration: none; margin-top: 40px; transition: background 0.2s, color 0.2s; font-family: var(--font); background: transparent; cursor: pointer; }
   .btn-outline:hover { background: var(--text-dark); color: #fff; }
-
   #business { background: var(--bg-gray); }
-
-  .business-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 0 40px 100px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
+  .business-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 40px 100px; max-width: 1200px; margin: 0 auto; }
   .biz-card { background: var(--bg-white); border-radius: 4px; overflow: hidden; }
-
-  .biz-card-img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.7);
-  }
-
-  .img-01 { background: #d0d0d0; }
-  .img-02 { background: #c4c8c4; }
-  .img-03 { background: #ccc8c4; }
-  .img-04 { background: #c8c8cc; }
-
-  .biz-card-coming {
-    width: 100%;
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--text-light);
-    background: #ebebeb;
-    border-bottom: 1px solid var(--border);
-  }
-
+  .biz-card-img { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); }
+  .img-01 { background: #d0d0d0; } .img-02 { background: #c4c8c4; } .img-03 { background: #ccc8c4; } .img-04 { background: #c8c8cc; }
+  .biz-card-coming { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: 0.2em; color: var(--text-light); background: #ebebeb; border-bottom: 1px solid var(--border); }
   .biz-card-body { padding: 24px; }
-
   .biz-name { font-size: 17px; font-weight: 400; margin-bottom: 10px; letter-spacing: 0.02em; }
-
   .biz-desc { font-size: 13px; line-height: 2; color: var(--text-mid); }
-
   .biz-brand-list { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
-
   .biz-brand-item { margin-bottom: 10px; }
-
-  .biz-brand-en {
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    display: block;
-    margin-bottom: 2px;
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .biz-brand-en { font-size: 12px; font-weight: 400; letter-spacing: 0.1em; display: block; margin-bottom: 2px; color: var(--text-dark); text-decoration: none; transition: color 0.2s; }
   .biz-brand-en:hover { color: var(--green); }
-
   .biz-brand-ja { font-size: 11px; color: var(--text-light); line-height: 1.7; }
-
-  .coming-soon-label {
-    display: inline-block;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: var(--text-light);
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    border-radius: 2px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-  }
-
+  .coming-soon-label { display: inline-block; font-size: 10px; letter-spacing: 0.2em; color: var(--text-light); border: 1px solid var(--border); padding: 4px 10px; border-radius: 2px; margin-bottom: 12px; text-transform: uppercase; }
   #works { background: var(--bg-white); }
-
-  .works-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px 40px; }
-
-  .work-row {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 22px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .work-row:last-child { border-bottom: 1px solid var(--border); }
-
-  .work-num { font-size: 12px; color: var(--text-light); letter-spacing: 0.1em; width: 28px; flex-shrink: 0; }
-
-  .work-name { font-size: 15px; font-weight: 400; flex: 1; color: var(--text-dark); }
-
-  .work-cat { font-size: 12px; color: var(--text-light); }
-
-  .works-note { text-align: center; font-size: 13px; color: var(--text-light); padding: 48px 40px 80px; }
-
+  .works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 40px 60px; max-width: 1200px; margin: 0 auto; }
+  .work-card { background: var(--bg-gray); border-radius: 4px; overflow: hidden; }
+  .work-card-img { width: 100%; aspect-ratio: 4/3; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 11px; letter-spacing: 0.15em; color: var(--text-light); }
+  .work-card-body { padding: 20px; }
+  .work-client { font-size: 11px; letter-spacing: 0.1em; color: var(--text-light); margin-bottom: 6px; }
+  .work-title { font-size: 15px; font-weight: 400; margin-bottom: 6px; color: var(--text-dark); }
+  .work-year { font-size: 11px; color: var(--text-light); margin-bottom: 8px; }
+  .work-desc { font-size: 12px; line-height: 1.8; color: var(--text-mid); }
+  .works-more { text-align: center; padding: 0 40px 80px; }
+  .works-more a { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--text-dark); padding: 12px 32px; border-radius: 999px; font-size: 13px; color: var(--text-dark); text-decoration: none; transition: background 0.2s, color 0.2s; cursor: pointer; }
+  .works-more a:hover { background: var(--text-dark); color: #fff; }
+  #works-all { display: none; background: var(--bg-white); min-height: 100vh; padding-top: 80px; }
+  #works-all.active { display: block; }
+  .works-all-inner { max-width: 1200px; margin: 0 auto; padding: 80px 40px 120px; }
+  .works-all-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 60px; }
   #contact { background: var(--bg-white); }
-
   .contact-inner { text-align: center; padding: 0 40px 60px; }
-
   .contact-lead { font-size: 14px; line-height: 2.4; color: var(--text-mid); margin-bottom: 48px; }
-
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: var(--black-btn);
-    color: #fff;
-    padding: 26px 40px;
-    border-radius: 999px;
-    font-size: 15px;
-    font-weight: 300;
-    text-decoration: none;
-    max-width: 580px;
-    margin: 0 auto;
-    transition: opacity 0.2s;
-    letter-spacing: 0.05em;
-    font-family: var(--font);
-    cursor: pointer;
-    border: none;
-  }
-
+  .contact-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: var(--black-btn); color: #fff; padding: 26px 40px; border-radius: 999px; font-size: 15px; font-weight: 300; max-width: 580px; margin: 0 auto; transition: opacity 0.2s; letter-spacing: 0.05em; font-family: var(--font); cursor: pointer; border: none; }
   .contact-btn:hover { opacity: 0.75; }
-
-  .form-wrap {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: left;
-    padding: 0 0 80px;
-    display: none;
-  }
-
+  .form-wrap { max-width: 640px; margin: 0 auto; text-align: left; padding: 0 0 80px; display: none; }
   .form-wrap.active { display: block; }
-
   .form-group { margin-bottom: 32px; }
-
-  .form-label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-mid);
-    margin-bottom: 10px;
-  }
-
+  .form-label { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 10px; }
   .form-required { color: #c0392b; margin-left: 4px; }
-
-  .form-input,
-  .form-select,
-  .form-textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    padding: 10px 0;
-    font-family: var(--font);
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--text-dark);
-    outline: none;
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
-    border-radius: 0;
-  }
-
-  .form-input:focus,
-  .form-select:focus,
-  .form-textarea:focus { border-bottom-color: var(--text-dark); }
-
+  .form-input, .form-select, .form-textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); padding: 10px 0; font-family: var(--font); font-size: 15px; font-weight: 300; color: var(--text-dark); outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 0; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-bottom-color: var(--text-dark); }
   .form-textarea { resize: none; height: 120px; }
-
   .form-select { background: transparent; cursor: pointer; }
-
-  .form-submit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: var(--black-btn);
-    color: #fff;
-    padding: 18px 40px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 300;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    letter-spacing: 0.05em;
-    font-family: var(--font);
-    border: none;
-    width: 100%;
-    margin-top: 16px;
-  }
-
+  .form-submit { display: flex; align-items: center; justify-content: center; gap: 12px; background: var(--black-btn); color: #fff; padding: 18px 40px; border-radius: 999px; font-size: 14px; font-weight: 300; cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.05em; font-family: var(--font); border: none; width: 100%; margin-top: 16px; }
   .form-submit:hover { opacity: 0.75; }
-
-  .confirm-wrap {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: left;
-    padding: 0 0 80px;
-    display: none;
-  }
-
+  .confirm-wrap { max-width: 640px; margin: 0 auto; text-align: left; padding: 0 0 80px; display: none; }
   .confirm-wrap.active { display: block; }
-
   .confirm-title { font-size: 16px; font-weight: 400; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-
   .confirm-row { display: flex; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
-
   .confirm-label { width: 140px; flex-shrink: 0; color: var(--text-mid); font-size: 12px; letter-spacing: 0.05em; }
-
   .confirm-value { color: var(--text-dark); }
-
   .confirm-actions { display: flex; gap: 16px; margin-top: 40px; }
-
-  .btn-back {
-    flex: 1;
-    padding: 16px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: transparent;
-    font-family: var(--font);
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-dark);
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
+  .btn-back { flex: 1; padding: 16px; border: 1px solid var(--border); border-radius: 999px; background: transparent; font-family: var(--font); font-size: 14px; font-weight: 300; color: var(--text-dark); cursor: pointer; transition: background 0.2s; }
   .btn-back:hover { background: var(--bg-gray); }
-
-  .btn-send {
-    flex: 2;
-    padding: 16px;
-    border-radius: 999px;
-    background: var(--black-btn);
-    border: none;
-    font-family: var(--font);
-    font-size: 14px;
-    font-weight: 300;
-    color: #fff;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    letter-spacing: 0.05em;
-  }
-
+  .btn-send { flex: 2; padding: 16px; border-radius: 999px; background: var(--black-btn); border: none; font-family: var(--font); font-size: 14px; font-weight: 300; color: #fff; cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.05em; }
   .btn-send:hover { opacity: 0.75; }
-
-  .thanks-wrap {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 40px 0 80px;
-    display: none;
-  }
-
+  .thanks-wrap { max-width: 640px; margin: 0 auto; text-align: center; padding: 40px 0 80px; display: none; }
   .thanks-wrap.active { display: block; }
-
   .thanks-wrap p { font-size: 15px; line-height: 2.2; color: var(--text-mid); }
-
-  #company-page {
-    display: none;
-    background: var(--bg-white);
-    min-height: 100vh;
-    padding-top: 80px;
-  }
-
+  #company-page { display: none; background: var(--bg-white); min-height: 100vh; padding-top: 80px; }
   #company-page.active { display: block; }
-
   .company-inner { max-width: 800px; margin: 0 auto; padding: 80px 40px 120px; }
-
-  .company-inner h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 400; margin-bottom: 80px; letter-spacing: -0.01em; }
-
-  .company-table { width: 100%; border-collapse: collapse; }
-
+  .company-inner h1 { font-size: clamp(56px, 8vw, 96px); font-weight: 400; letter-spacing: -0.01em; line-height: 1; margin-bottom: 12px; }
+  .company-subtitle { font-size: 13px; color: var(--text-mid); letter-spacing: 0.05em; margin-bottom: 80px; }
+  .company-table { width: 100%; border-collapse: collapse; margin-bottom: 80px; }
   .company-table tr { border-top: 1px solid var(--border); }
   .company-table tr:last-child { border-bottom: 1px solid var(--border); }
-
-  .company-table th {
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    color: var(--text-mid);
-    padding: 24px 0;
-    text-align: left;
-    width: 200px;
-    vertical-align: top;
-  }
-
+  .company-table th { font-size: 12px; font-weight: 400; letter-spacing: 0.05em; color: var(--text-mid); padding: 24px 0; text-align: left; width: 200px; vertical-align: top; }
   .company-table td { font-size: 14px; font-weight: 300; line-height: 2; color: var(--text-dark); padding: 24px 0; }
-
-  .back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--text-mid);
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-family: var(--font);
-    margin-bottom: 48px;
-    padding: 0;
-    transition: color 0.2s;
-  }
-
+  .company-profile-title { font-size: 20px; font-weight: 400; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .company-profile-text { font-size: 14px; font-weight: 300; line-height: 2.4; color: var(--text-mid); }
+  .back-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-mid); cursor: pointer; background: none; border: none; font-family: var(--font); margin-bottom: 48px; padding: 0; transition: color 0.2s; }
   .back-btn:hover { color: var(--text-dark); }
-
-  footer {
-    background: var(--bg-gray);
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid var(--border);
-  }
-
+  footer { background: var(--bg-gray); padding: 40px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
   .footer-logo { font-size: 13px; font-weight: 400; letter-spacing: 0.05em; }
-
   .footer-sns { display: flex; gap: 24px; }
-
   .footer-sns a { font-size: 13px; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
-
   .footer-sns a:hover { color: var(--text-dark); }
-
   .footer-copy { font-size: 12px; color: var(--text-light); }
-
   @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .nav-links { display: none; }
-    #hero { flex-direction: column; padding: 100px 24px 80px; }
-    .hero-right { display: none; }
+    nav { padding: 16px 20px; } .nav-links { display: none; }
+    #hero { flex-direction: column; padding: 100px 24px 80px; } .hero-right { display: none; }
     .about-inner { flex-direction: column; padding: 0 24px 80px; gap: 40px; }
-    .business-grid { grid-template-columns: 1fr; padding: 0 24px 80px; }
-    .works-inner { padding: 0 24px 40px; }
-    .contact-inner { padding: 0 24px 60px; }
-    .form-wrap { padding: 0 24px 80px; }
-    .confirm-wrap { padding: 0 24px 80px; }
+    .business-grid, .works-grid, .works-all-grid { grid-template-columns: 1fr; padding: 0 24px 80px; }
+    .contact-inner { padding: 0 24px 60px; } .form-wrap, .confirm-wrap { padding: 0 24px 80px; }
     .company-inner { padding: 40px 24px 80px; }
     footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
   }
@@ -587,18 +144,17 @@ html
 <body>
 
 <nav>
-  <a href="#" class="nav-logo" onclick="showMain(); return false;">HEDGEHOG CONCEPT</a>
+  <a href="#" class="nav-logo" onclick="navTo('hero'); return false;">HEDGEHOG CONCEPT</a>
   <ul class="nav-links">
-    <li><a href="#" class="active" onclick="showMain(); return false;">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#business">Business</a></li>
-    <li><a href="#works">Works</a></li>
-    <li><a href="#contact" class="nav-contact">Contact</a></li>
+    <li><a href="#" class="active" onclick="navTo('hero'); return false;">Home</a></li>
+    <li><a href="#about" onclick="navTo('about'); return false;">About</a></li>
+    <li><a href="#business" onclick="navTo('business'); return false;">Business</a></li>
+    <li><a href="#works" onclick="navTo('works'); return false;">Works</a></li>
+    <li><a href="#contact" class="nav-contact" onclick="navTo('contact'); return false;">Contact</a></li>
   </ul>
 </nav>
 
 <div id="main-content">
-
   <section id="hero">
     <div class="hero-left">
       <h1 class="hero-headline">ちゃんと尖っているか。<br>それだけを考えています。</h1>
@@ -606,9 +162,7 @@ html
     </div>
     <div class="hero-right">
       <div class="hero-visual">
-        <div class="vis-circle"></div>
-        <div class="vis-rect"></div>
-        <div class="vis-tri"></div>
+        <div class="vis-circle"></div><div class="vis-rect"></div><div class="vis-tri"></div>
       </div>
     </div>
     <div class="hero-scroll">Scroll down</div>
@@ -616,13 +170,10 @@ html
 
   <section id="about">
     <div class="section-title" style="background: var(--bg-white);">
-      <h2>About</h2>
-      <p>私たちについて</p>
+      <h2>About</h2><p>私たちについて</p>
     </div>
     <div class="about-inner">
-      <div class="about-img">
-        <div class="about-img-placeholder">Photo</div>
-      </div>
+      <div class="about-img"><div class="about-img-placeholder">Photo</div></div>
       <div class="about-text">
         <p>HEDGEHOG CONCEPT株式会社は、サウナ・ウェルネス領域を軸に複数の事業を展開するクリエイティブカンパニーです。</p>
         <p>私たちの仕事には、4つの問いがあります。</p>
@@ -630,7 +181,7 @@ html
           当たり前の質を、もっと高められないか。<br>
           「その手があったか」と言わせられないか。<br>
           思わずニヤッとしてしまうアイデアはないか。<br>
-          新しい価値が創造できているか。
+          そして、新しい価値が創造できているか。
         </p>
         <p>この問いは、私たちが関わるあらゆる仕事の根幹になっています。</p>
         <p>業界も、規模も、手段も関係ない。<br>面白くて、ちゃんと機能するものをつくる。<br>それがHEDGEHOG CONCEPTの仕事です。</p>
@@ -641,10 +192,7 @@ html
   </section>
 
   <section id="business">
-    <div class="section-title">
-      <h2>Business</h2>
-      <p>事業紹介</p>
-    </div>
+    <div class="section-title"><h2>Business</h2><p>事業紹介</p></div>
     <div class="business-grid">
       <div class="biz-card">
         <div class="biz-card-img img-01">Sauna goods</div>
@@ -652,27 +200,15 @@ html
           <h3 class="biz-name">サウナグッズブランド運営</h3>
           <p class="biz-desc">サウナグッズの企画・製造・販売を行う3つのブランドを展開しています。「なぜ今までなかったのか」と言われるプロダクトを、温浴施設向けB2B卸を中心に展開しています。</p>
           <div class="biz-brand-list">
-            <div class="biz-brand-item">
-              <a href="https://hrnzm.official.ec" target="_blank" class="biz-brand-en">HARINEZUMI ↗</a>
-              <span class="biz-brand-ja">現役熱波師が作るサウナグッズブランド</span>
-            </div>
-            <div class="biz-brand-item">
-              <a href="https://alagamo.official.ec" target="_blank" class="biz-brand-en">ALAGAMO ↗</a>
-              <span class="biz-brand-ja">個性的なシルエットが人気の老舗サウナハット</span>
-            </div>
-            <div class="biz-brand-item">
-              <a href="https://sauno.base.ec" target="_blank" class="biz-brand-en">SAUNO ↗</a>
-              <span class="biz-brand-ja">"the first sauna hat for you"<br>手に取りやすい価格が魅力のブランド</span>
-            </div>
+            <div class="biz-brand-item"><a href="https://hrnzm.official.ec" target="_blank" class="biz-brand-en">HARINEZUMI ↗</a><span class="biz-brand-ja">現役熱波師が作るサウナグッズブランド</span></div>
+            <div class="biz-brand-item"><a href="https://alagamo.official.ec" target="_blank" class="biz-brand-en">ALAGAMO ↗</a><span class="biz-brand-ja">個性的なシルエットが人気の老舗サウナハット</span></div>
+            <div class="biz-brand-item"><a href="https://sauno.base.ec" target="_blank" class="biz-brand-en">SAUNO ↗</a><span class="biz-brand-ja">"the first sauna hat for you"<br>手に取りやすい価格が魅力のブランド</span></div>
           </div>
         </div>
       </div>
       <div class="biz-card">
-        <div class="biz-card-img img-02">Vintage clothing</div>
-        <div class="biz-card-body">
-          <h3 class="biz-name">古着屋2週間</h3>
-          <p class="biz-desc">蔵前発、2週間で全品入れ替わる古着屋。希少性と回転の速さが、服との偶然の出会いをつくります。</p>
-        </div>
+        <div class="biz-card-img img-02">Sauna performer</div>
+        <div class="biz-card-body"><h3 class="biz-name">熱波師</h3><p class="biz-desc">サウナ施設でのアウフグース（熱波）パフォーマンス。熱と風と言葉で、整いの体験を演出します。</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-card-img img-03">Creative</div>
@@ -688,80 +224,42 @@ html
         </div>
       </div>
       <div class="biz-card">
-        <div class="biz-card-img img-04">Sauna performer</div>
-        <div class="biz-card-body">
-          <h3 class="biz-name">熱波師</h3>
-          <p class="biz-desc">サウナ施設でのアウフグース（熱波）パフォーマンス。熱と風と言葉で、整いの体験を演出します。</p>
-        </div>
+        <div class="biz-card-img img-04">Vintage clothing</div>
+        <div class="biz-card-body"><h3 class="biz-name">古着屋2週間</h3><p class="biz-desc">蔵前発、2週間で全品入れ替わる古着屋。希少性と回転の速さが、服との偶然の出会いをつくります。</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-card-coming">COMING SOON</div>
-        <div class="biz-card-body">
-          <span class="coming-soon-label">Coming Soon</span>
-          <h3 class="biz-name" style="color: var(--text-light);">準備中</h3>
-          <p class="biz-desc">新しい事業を準備しています。</p>
-        </div>
+        <div class="biz-card-body"><span class="coming-soon-label">Coming Soon</span><h3 class="biz-name" style="color: var(--text-light);">準備中</h3><p class="biz-desc">新しい事業を準備しています。</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-card-coming">COMING SOON</div>
-        <div class="biz-card-body">
-          <span class="coming-soon-label">Coming Soon</span>
-          <h3 class="biz-name" style="color: var(--text-light);">準備中</h3>
-          <p class="biz-desc">新しい事業を準備しています。</p>
-        </div>
+        <div class="biz-card-body"><span class="coming-soon-label">Coming Soon</span><h3 class="biz-name" style="color: var(--text-light);">準備中</h3><p class="biz-desc">新しい事業を準備しています。</p></div>
       </div>
     </div>
   </section>
 
   <section id="works">
-    <div class="section-title" style="background: var(--bg-white);">
-      <h2>Works</h2>
-      <p>実績・クライアント</p>
+    <div class="section-title" style="background: var(--bg-white);"><h2>Works</h2><p>実績・クライアント</p></div>
+    <div class="works-grid">
+      <div class="work-card"><div class="work-card-img">Photo</div><div class="work-card-body"><p class="work-client">株式会社 楽久屋</p><h3 class="work-title">コラボTシャツ</h3><p class="work-year">2023</p><p class="work-desc">ブランド初となるコラボデザイン</p></div></div>
+      <div class="work-card"><div class="work-card-img">Photo</div><div class="work-card-body"><p class="work-client">草加健康センター</p><h3 class="work-title">コラボサウナハット</h3><p class="work-year">2023</p><p class="work-desc">人気のらっこキャラとハリネズミのコラボ</p></div></div>
+      <div class="work-card"><div class="work-card-img">Photo</div><div class="work-card-body"><p class="work-client">サウナ東京</p><h3 class="work-title">コラボサウナハット</h3><p class="work-year">2023</p><p class="work-desc">現在も継続中</p></div></div>
     </div>
-    <div class="works-inner">
-      <div class="work-row"><span class="work-num">01</span><span class="work-name">クライアント名</span><span class="work-cat">温浴施設</span></div>
-      <div class="work-row"><span class="work-num">02</span><span class="work-name">クライアント名</span><span class="work-cat">温浴施設</span></div>
-      <div class="work-row"><span class="work-num">03</span><span class="work-name">クライアント名</span><span class="work-cat">アパレルブランド</span></div>
-      <div class="work-row"><span class="work-num">04</span><span class="work-name">クライアント名</span><span class="work-cat">飲食店</span></div>
-      <div class="work-row"><span class="work-num">05</span><span class="work-name">クライアント名</span><span class="work-cat">地方自治体</span></div>
-      <div class="work-row"><span class="work-num">06</span><span class="work-name">クライアント名</span><span class="work-cat">その他</span></div>
-    </div>
-    <p class="works-note">「面白くて、ちゃんと機能する」を一緒につくってきたクライアントです。</p>
+    <div class="works-more"><a href="#" onclick="showWorksAll(); return false;">And more →</a></div>
   </section>
 
   <section id="contact">
-    <div class="section-title" style="background: var(--bg-white);">
-      <h2>Contact</h2>
-      <p>お問い合わせ</p>
-    </div>
+    <div class="section-title" style="background: var(--bg-white);"><h2>Contact</h2><p>お問い合わせ</p></div>
     <div class="contact-inner">
-      <p class="contact-lead">
-        各サウナグッズブランドお取り扱いについて、<br>
-        コラボグッズ・施設オリジナルグッズの製作について、<br>
-        事業クリエイティブのご依頼、熱波師の出演依頼、<br>
-        取材・メディア掲載など、<br>
-        どんなご用件でもお気軽にどうぞ。
-      </p>
+      <p class="contact-lead">各サウナグッズブランドお取り扱いについて、<br>コラボグッズ・施設オリジナルグッズの製作について、<br>事業クリエイティブのご依頼、熱波師の出演依頼、<br>取材・メディア掲載など、<br>どんなご用件でもお気軽にどうぞ。</p>
       <button class="contact-btn" onclick="showForm()">✉ お問い合わせをする →</button>
     </div>
     <div class="form-wrap" id="form-wrap">
       <form id="contact-form" onsubmit="showConfirm(event)">
-        <div class="form-group">
-          <label class="form-label">会社名</label>
-          <input type="text" class="form-input" id="company" placeholder="株式会社〇〇">
-        </div>
-        <div class="form-group">
-          <label class="form-label">担当者名<span class="form-required">*</span></label>
-          <input type="text" class="form-input" id="name" required placeholder="鈴木 昭宏">
-        </div>
-        <div class="form-group">
-          <label class="form-label">メールアドレス<span class="form-required">*</span></label>
-          <input type="email" class="form-input" id="email" required placeholder="info@example.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label">電話番号</label>
-          <input type="tel" class="form-input" id="tel" placeholder="03-0000-0000">
-        </div>
+        <div class="form-group"><label class="form-label">会社名</label><input type="text" class="form-input" id="company" placeholder="株式会社〇〇"></div>
+        <div class="form-group"><label class="form-label">担当者名<span class="form-required">*</span></label><input type="text" class="form-input" id="name" required placeholder="鈴木 昭宏"></div>
+        <div class="form-group"><label class="form-label">メールアドレス<span class="form-required">*</span></label><input type="email" class="form-input" id="email" required placeholder="info@example.com"></div>
+        <div class="form-group"><label class="form-label">電話番号</label><input type="tel" class="form-input" id="tel" placeholder="03-0000-0000"></div>
         <div class="form-group">
           <label class="form-label">お問い合わせ内容<span class="form-required">*</span></label>
           <select class="form-select" id="category" required onchange="toggleOther()">
@@ -774,10 +272,8 @@ html
             <option value="その他">その他</option>
           </select>
         </div>
-        <div class="form-group" id="other-group" style="display:none;">
-          <label class="form-label">その他 詳細</label>
-          <textarea class="form-textarea" id="other" placeholder="お問い合わせ内容をご記入ください"></textarea>
-        </div>
+        <div class="form-group"><label class="form-label">内容・備考</label><textarea class="form-textarea" id="message" placeholder="こちらに内容を記載してください"></textarea></div>
+        <div class="form-group" id="other-group" style="display:none;"><label class="form-label">その他 詳細</label><textarea class="form-textarea" id="other" placeholder="お問い合わせ内容をご記入ください"></textarea></div>
         <button type="submit" class="form-submit">内容を確認する →</button>
       </form>
     </div>
@@ -788,15 +284,14 @@ html
       <div class="confirm-row"><span class="confirm-label">メールアドレス</span><span class="confirm-value" id="c-email"></span></div>
       <div class="confirm-row"><span class="confirm-label">電話番号</span><span class="confirm-value" id="c-tel"></span></div>
       <div class="confirm-row"><span class="confirm-label">お問い合わせ内容</span><span class="confirm-value" id="c-category"></span></div>
+      <div class="confirm-row"><span class="confirm-label">内容・備考</span><span class="confirm-value" id="c-message"></span></div>
       <div class="confirm-row" id="c-other-row" style="display:none;"><span class="confirm-label">その他 詳細</span><span class="confirm-value" id="c-other"></span></div>
       <div class="confirm-actions">
         <button class="btn-back" onclick="backToForm()">← 修正する</button>
         <button class="btn-send" onclick="sendForm()">この内容で送信する</button>
       </div>
     </div>
-    <div class="thanks-wrap" id="thanks-wrap">
-      <p>お問い合わせありがとうございました。<br>内容を確認の上、担当者よりご連絡いたします。</p>
-    </div>
+    <div class="thanks-wrap" id="thanks-wrap"><p>お問い合わせありがとうございました。<br>内容を確認の上、担当者よりご連絡いたします。</p></div>
   </section>
 
   <footer>
@@ -807,21 +302,17 @@ html
     </div>
     <p class="footer-copy">© 2026 HEDGEHOG CONCEPT Inc.</p>
   </footer>
-
 </div>
 
-<div id="company-page">
-  <div class="company-inner">
+<div id="works-all">
+  <div class="works-all-inner">
     <button class="back-btn" onclick="showMain()">← 戻る</button>
-    <h1>Company</h1>
-    <table class="company-table">
-      <tr><th>会社名</th><td>HEDGEHOG CONCEPT株式会社</td></tr>
-      <tr><th>代表取締役</th><td>鈴木 昭宏</td></tr>
-      <tr><th>設立</th><td>（設立年月日）</td></tr>
-      <tr><th>所在地</th><td>（住所）</td></tr>
-      <tr><th>事業内容</th><td>サウナグッズの企画・製造・販売<br>古着屋の運営<br>事業クリエイティブ<br>熱波師（アウフグースパフォーマンス）</td></tr>
-      <tr><th>メールアドレス</th><td>info@hedgehogconcept.co.jp</td></tr>
-    </table>
+    <div class="section-title" style="padding: 0 0 60px;"><h2>Works</h2><p>実績・クライアント</p></div>
+    <div class="works-all-grid">
+      <div class="work-card"><div class="work-card-img">Photo</div><div class="work-card-body"><p class="work-client">株式会社 楽久屋</p><h3 class="work-title">コラボTシャツ</h3><p class="work-year">2023</p><p class="work-desc">ブランド初となるコラボデザイン</p></div></div>
+      <div class="work-card"><div class="work-card-img">Photo</div><div class="work-card-body"><p class="work-client">草加健康センター</p><h3 class="work-title">コラボサウナハット</h3><p class="work-year">2023</p><p class="work-desc">人気のらっこキャラとハリネズミのコラボ</p></div></div>
+      <div class="work-card"><div class="work-card-img">Photo</div><div class="work-card-body"><p class="work-client">サウナ東京</p><h3 class="work-title">コラボサウナハット</h3><p class="work-year">2023</p><p class="work-desc">現在も継続中</p></div></div>
+    </div>
   </div>
   <footer>
     <div class="footer-logo">HEDGEHOG CONCEPT</div>
@@ -833,79 +324,35 @@ html
   </footer>
 </div>
 
-<script>
-  function showCompany() {
-    document.getElementById('main-content').style.display = 'none';
-    document.getElementById('company-page').classList.add('active');
-    window.scrollTo(0, 0);
-  }
+<div id="company-page">
+  <div class="company-inner">
+    <button class="back-btn" onclick="showMain()">← 戻る</button>
+    <h1>Company</h1>
+    <p class="company-subtitle">会社概要</p>
+    <table class="company-table">
+      <tr><th>会社名</th><td>HEDGEHOG CONCEPT株式会社</td></tr>
+      <tr><th>代表取締役</th><td>鈴木 昭宏</td></tr>
+      <tr><th>設立</th><td>2023年4月12日</td></tr>
+      <tr><th>所在地</th><td>東京都台東区蔵前4-11-1 髙橋ビル2階</td></tr>
+      <tr><th>事業内容</th><td>サウナグッズの企画・製造・販売<br>熱波師（アウフグースパフォーマンス）<br>事業クリエイティブ<br>古着屋2週間の運営</td></tr>
+      <tr><th>メールアドレス</th><td>info@hedgehogconcept.co.jp</td></tr>
+    </table>
+    <p class="company-profile-title">代表者略歴</p>
+    <p class="company-profile-text">
+      大学卒業後、競技用自転車関連商品の輸入代理店に勤務した後、同マーケットの外資系ブランドにて日本法人のマーケティングマネージャーを務める。同マーケットでの約13年のキャリアを経た後、創業100年を超える日本の生活雑貨製造会社でリブランディングと商品開発を主に行い、業績と企業価値の回復に尽力。手がけた商品は「日本パッケージデザイン大賞 金賞」を受賞。<br><br>
+      2023年4月 HEDGEHOG CONCEPT株式会社を設立。サウナとアウトドアを愛するブランド「ハリネズミ」を展開し、全国の温浴施設、サウナ施設に販売をする傍ら自らも熱波師として活動中。2024年には「the first sauna hat for you（初めてのサウナハットをあなたに）」がコンセプトの新ブランドSAUNOをスタート、多くの温浴施設での販売を始める。2026年、老舗サウナハットブランド「ALAGAMO」の商標並びに運営権の事業譲渡を受け、合計3ブランドを展開し、現在に至る。
+    </p>
+  </div>
+  <footer>
+    <div class="footer-logo">HEDGEHOG CONCEPT</div>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/harinezumi_official/" target="_blank">Instagram</a>
+      <a href="https://x.com/harinezumisauna" target="_blank">X</a>
+    </div>
+    <p class="footer-copy">© 2026 HEDGEHOG CONCEPT Inc.</p>
+  </footer>
+</div>
 
-  function showMain() {
-    document.getElementById('main-content').style.display = 'block';
-    document.getElementById('company-page').classList.remove('active');
-    window.scrollTo(0, 0);
-  }
-
-  function showForm() {
-    document.getElementById('form-wrap').classList.add('active');
-    document.getElementById('confirm-wrap').classList.remove('active');
-    document.getElementById('thanks-wrap').classList.remove('active');
-    document.querySelector('.contact-btn').style.display = 'none';
-    document.getElementById('form-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function toggleOther() {
-    const cat = document.getElementById('category').value;
-    document.getElementById('other-group').style.display = cat === 'その他' ? 'block' : 'none';
-  }
-
-  function showConfirm(e) {
-    e.preventDefault();
-    document.getElementById('c-company').textContent = document.getElementById('company').value || '—';
-    document.getElementById('c-name').textContent = document.getElementById('name').value;
-    document.getElementById('c-email').textContent = document.getElementById('email').value;
-    document.getElementById('c-tel').textContent = document.getElementById('tel').value || '—';
-    document.getElementById('c-category').textContent = document.getElementById('category').value;
-    const other = document.getElementById('other').value;
-    if (other) {
-      document.getElementById('c-other-row').style.display = 'flex';
-      document.getElementById('c-other').textContent = other;
-    }
-    document.getElementById('form-wrap').classList.remove('active');
-    document.getElementById('confirm-wrap').classList.add('active');
-    document.getElementById('confirm-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function backToForm() {
-    document.getElementById('confirm-wrap').classList.remove('active');
-    document.getElementById('form-wrap').classList.add('active');
-  }
-
-  async function sendForm() {
-    const data = {
-      company: document.getElementById('company').value,
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      tel: document.getElementById('tel').value,
-      category: document.getElementById('category').value,
-      other: document.getElementById('other').value,
-    };
-    try {
-      const res = await fetch('https://formspree.io/f/xgopagjv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (res.ok) {
-        document.getElementById('confirm-wrap').classList.remove('active');
-        document.getElementById('thanks-wrap').classList.add('active');
-      } else {
-        alert('送信に失敗しました。お手数ですが、直接メールにてお問い合わせください。');
-      }
-    } catch {
-      alert('送信に失敗しました。お手数ですが、直接メールにてお問い合わせください。');
-    }
-  }
-</script>
+<script src="app.js"></script>
 </body>
 </html>
