@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEDGEHOG CONCEPT株式会社</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-gray: #f2f2f2;
+    --bg-white: #ffffff;
+    --text-dark: #333333;
+    --text-mid: #666666;
+    --text-light: #999999;
+    --green: #3a8a4a;
+    --black-btn: #333333;
+    --border: #e0e0e0;
+    --font: 'Noto Sans JP', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-gray);
+    color: var(--text-dark);
+    font-family: var(--font);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: var(--bg-gray);
+  }
+
+  .nav-logo {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--text-dark);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--green); }
+  .nav-links a.active { color: var(--green); }
+
+  .nav-contact {
+    background: var(--black-btn) !important;
+    color: #fff !important;
+    padding: 10px 24px !important;
+    border-radius: 999px;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    background: var(--bg-gray);
+    display: flex;
+    align-items: center;
+    padding: 100px 80px 80px;
+    position: relative;
+    gap: 40px;
+  }
+
+  .hero-left {
+    flex: 1;
+    max-width: 520px;
+  }
+
+  .hero-headline {
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 300;
+    line-height: 1.9;
+    letter-spacing: 0.1em;
+    color: var(--text-dark);
+    margin-bottom: 32px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--text-mid);
+  }
+
+  .hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hero-visual {
+    width: 440px;
+    height: 440px;
+    position: relative;
+  }
+
+  .vis-circle {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: #d4d4d4;
+  }
+
+  .vis-rect {
+    position: absolute;
+    bottom: 30px; right: 0;
+    width: 240px; height: 240px;
+    background: #c4c4c4;
+  }
+
+  .vis-tri {
+    position: absolute;
+    bottom: 30px; left: 60px;
+    width: 0; height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 140px solid #b8b8b8;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-mid);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-scroll::after {
+    content: '↓';
+    display: block;
+    margin-top: 6px;
+  }
+
+  /* SECTION TITLE */
+  .section-title {
+    text-align: center;
+    padding: 80px 40px 60px;
+  }
+
+  .section-title h2 {
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+  }
+
+  .section-title p {
+    font-size: 13px;
+    color: var(--text-mid);
+    letter-spacing: 0.05em;
+  }
+
+  /* ABOUT */
+  #about { background: var(--bg-white); }
+
+  .about-inner {
+    display: flex;
+    gap: 80px;
+    padding: 0 80px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .about-img {
+    flex: 1;
+    max-width: 460px;
+  }
+
+  .about-img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #e4e4e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .about-text { flex: 1; }
+
+  .about-text p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--text-dark);
+  }
+
+  .about-text p + p { margin-top: 28px; }
+
+  .about-questions {
+    margin: 32px 0;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 2.2 !important;
+    color: var(--text-dark) !important;
+    letter-spacing: 0.04em;
+  }
+
+  .about-sign {
+    margin-top: 48px;
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--text-dark);
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-dark);
+    text-decoration: none;
+    margin-top: 40px;
+    transition: background 0.2s, color 0.2s;
+    font-family: var(--font);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover { background: var(--text-dark); color: #fff; }
+
+  /* BUSINESS */
+  #business { background: var(--bg-gray); }
+
+  .business-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 40px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .biz-card {
+    background: var(--bg-white);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .biz-card-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .img-01 { background: #d0d0d0; }
+  .img-02 { background: #c4c8c4; }
+  .img-03 { background: #ccc8c4; }
+  .img-04 { background: #c8c8cc; }
+
+  .biz-card-body { padding: 24px; }
+
+  .biz-name {
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .biz-desc {
+    font-size: 13px;
+    line-height: 2;
+    color: var(--text-mid);
+  }
+
+  .biz-brand-list {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .biz-brand-item { margin-bottom: 10px; }
+
+  .biz-brand-en {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 2px;
+    color: var(--text-dark);
+  }
+
+  .biz-brand-ja {
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* CLIENTS */
+  #clients { background: var(--bg-white); }
+
+  .clients-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+  }
+
+  .client-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .client-row:last-child { border-bottom: 1px solid var(--border); }
+
+  .client-num {
+    font-size: 12px;
+    color: var(--text-light);
+    letter-spacing: 0.1em;
+    width: 28px;
+    flex-shrink: 0;
+  }
+
+  .client-name {
+    font-size: 15px;
+    font-weight: 400;
+    flex: 1;
+    color: var(--text-dark);
+  }
+
+  .client-cat {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  .clients-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+    padding: 48px 40px 80px;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--bg-white); }
+
+  .contact-inner {
+    text-align: center;
+    padding: 0 40px 120px;
+  }
+
+  .contact-lead {
+    font-size: 14px;
+    line-height: 2.4;
+    color: var(--text-mid);
+    margin-bottom: 48px;
+  }
+
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--black-btn);
+    color: #fff;
+    padding: 26px 40px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: none;
+    max-width: 580px;
+    margin: 0 auto;
+    transition: opacity 0.2s;
+    letter-spacing: 0.05em;
+    font-family: var(--font);
+  }
+
+  .contact-btn:hover { opacity: 0.75; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg-gray);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-logo { font-size: 13px; font-weight: 400; letter-spacing: 0.05em; }
+
+  .footer-sns { display: flex; gap: 24px; }
+
+  .footer-sns a {
+    font-size: 13px;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-sns a:hover { color: var(--text-dark); }
+
+  .footer-copy { font-size: 12px; color: var(--text-light); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    #hero { flex-direction: column; padding: 100px 24px 80px; }
+    .hero-right { display: none; }
+    .about-inner { flex-direction: column; padding: 0 24px 80px; gap: 40px; }
+    .business-grid { grid-template-columns: 1fr; padding: 0 24px 80px; }
+    .clients-inner { padding: 0 24px 40px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">HEDGEHOG CONCEPT</a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#business">Business</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact" class="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <h1 class="hero-headline">
+      ちゃんと尖っているか。<br>それだけを考えています。
+    </h1>
+    <p class="hero-sub">
+      当たり前の質を高め、思わずニヤッとさせる意外性を忘れずに。<br>
+      すべての仕事は、新しい価値の創造のために。
+    </p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="vis-circle"></div>
+      <div class="vis-rect"></div>
+      <div class="vis-tri"></div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll down</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">
+    <h2>About</h2>
+    <p>私たちについて</p>
+  </div>
+  <div class="about-inner">
+    <div class="about-img">
+      <div class="about-img-placeholder">Photo</div>
+    </div>
+    <div class="about-text">
+      <p>HEDGEHOG CONCEPT株式会社は、サウナ・ウェルネス領域を軸に複数の事業を展開するクリエイティブカンパニーです。</p>
+      <p>私たちの仕事には、4つの問いがあります。</p>
+      <p class="about-questions">
+        当たり前の質を、もっと高められないか。<br>
+        「その手があったか」と言わせられないか。<br>
+        思わずニヤッとしてしまうアイデアはないか。<br>
+        そして、新しい価値が創造できているか。
+      </p>
+      <p>この問いは、私たちが関わるあらゆる仕事の根幹になっています。</p>
+      <p>業界も、規模も、手段も関係ない。<br>面白くて、ちゃんと機能するものをつくる。<br>それがHEDGEHOG CONCEPTの仕事です。</p>
+      <p class="about-sign">代表　鈴木 昭宏</p>
+      <a href="#contact" class="btn-outline">会社情報詳細へ →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS -->
+<section id="business">
+  <div class="section-title">
+    <h2>Business</h2>
+    <p>事業紹介</p>
+  </div>
+  <div class="business-grid">
+
+    <div class="biz-card">
+      <div class="biz-card-img img-01">Sauna goods</div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">サウナグッズブランド運営</h3>
+        <p class="biz-desc">サウナグッズの企画・製造・販売を行う3つのブランドを展開しています。「なぜ今までなかったのか」と言われるプロダクトを、温浴施設向けB2B卸を中心に展開しています。</p>
+        <div class="biz-brand-list">
+          <div class="biz-brand-item">
+            <span class="biz-brand-en">HARINEZUMI</span>
+            <span class="biz-brand-ja">現役熱波師が作るサウナグッズブランド</span>
+          </div>
+          <div class="biz-brand-item">
+            <span class="biz-brand-en">ALAGAMO</span>
+            <span class="biz-brand-ja">個性的なシルエットが人気の老舗サウナハット</span>
+          </div>
+          <div class="biz-brand-item">
+            <span class="biz-brand-en">SAUNO</span>
+            <span class="biz-brand-ja">"the first sauna hat for you"<br>手に取りやすい価格が魅力のブランド</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card">
+      <div class="biz-card-img img-02">Vintage clothing</div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">古着屋2週間</h3>
+        <p class="biz-desc">蔵前発、2週間で全品入れ替わる古着屋。希少性と回転の速さが、服との偶然の出会いをつくります。</p>
+      </div>
+    </div>
+
+    <div class="biz-card">
+      <div class="biz-card-img img-03">Creative</div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">事業クリエイティブ</h3>
+        <p class="biz-desc">新しい価値の創造のために、企画段階から伴走します。</p>
+        <div class="biz-brand-list">
+          <div class="biz-brand-item"><span class="biz-brand-ja">・ブランドの企画と設計</span></div>
+          <div class="biz-brand-item"><span class="biz-brand-ja">・ロゴ・印刷物・空間などのビジュアルデザイン</span></div>
+          <div class="biz-brand-item"><span class="biz-brand-ja">・新製品・新サービスの企画開発</span></div>
+          <div class="biz-brand-item"><span class="biz-brand-ja">・事業戦略のアドバイス</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card">
+      <div class="biz-card-img img-04">Sauna performer</div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">熱波師</h3>
+        <p class="biz-desc">サウナ施設でのアウフグース（熱波）パフォーマンス。熱と風と言葉で、整いの体験を演出します。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="section-title" style="background: var(--bg-white);">
+    <h2>Clients</h2>
+    <p>実績・クライアント</p>
+  </div>
+  <div class="clients-inner">
+    <div class="client-row">
+      <span class="client-num">01</span>
+      <span class="client-name">クライアント名</span>
+      <span class="client-cat">温浴施設</span>
+    </div>
+    <div class="client-row">
+      <span class="client-num">02</span>
+      <span class="client-name">クライアント名</span>
+      <span class="client-cat">温浴施設</span>
+    </div>
+    <div class="client-row">
+      <span class="client-num">03</span>
+      <span class="client-name">クライアント名</span>
+      <span class="client-cat">アパレルブランド</span>
+    </div>
+    <div class="client-row">
+      <span class="client-num">04</span>
+      <span class="client-name">クライアント名</span>
+      <span class="client-cat">飲食店</span>
+    </div>
+    <div class="client-row">
+      <span class="client-num">05</span>
+      <span class="client-name">クライアント名</span>
+      <span class="client-cat">地方自治体</span>
+    </div>
+    <div class="client-row">
+      <span class="client-num">06</span>
+      <span class="client-name">クライアント名</span>
+      <span class="client-cat">その他</span>
+    </div>
+  </div>
+  <p class="clients-note">「面白くて、ちゃんと機能する」を一緒につくってきたクライアントです。</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-title" style="background: var(--bg-white);">
+    <h2>Contact</h2>
+    <p>お問い合わせ</p>
+  </div>
+  <div class="contact-inner">
+    <p class="contact-lead">
+      B2B卸のご相談、事業クリエイティブのご依頼、<br>
+      熱波師の出演依頼、取材・メディア掲載など、<br>
+      どんな入口でもお気軽にどうぞ。
+    </p>
+    <a href="/cdn-cgi/l/email-protection#a8c1c6cec7e8c0cdcccfcdc0c7cf85cbc7c6cbcdd8dc86cbc786c2d8" class="contact-btn">
+      ✉ お問い合わせをする →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">HEDGEHOG CONCEPT</div>
+  <div class="footer-sns">
+    <a href="#">Instagram</a>
+    <a href="#">X</a>
+  </div>
+  <p class="footer-copy">© 2026 HED
